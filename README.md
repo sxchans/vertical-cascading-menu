@@ -1,5 +1,4 @@
 <h2>Vertical Cascading Menu (using JqueryUI)</h2>
-
 <h4>This project is an implementation of the Jquery UI Menu Widget (http://jqueryui.com/menu/#default)</h4>
 <ol style="font-family: Arial, Sans-serif;font-size: 14px;">
     <li> It takes a JSON Input and creates a corresponding vertical cascading menu recursively with potentially infinite depth
@@ -12,6 +11,7 @@
                                     position: {my:"left", at: "right"}
                                   });</i>
     <li> Json object is mandatory. Without this, the JS will not be able to create the cascading menu.
+    <li>Demo: http://jsfiddle.net/sxchans/7ecpxh7p/
     <li><h4><b>Options explained</b></h4>
         <ul>
            <li> <b>json</b> - A string parsed as a json object.
