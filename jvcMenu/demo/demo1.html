@@ -1,0 +1,33 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery UI Menu - Icons</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+        <script src="../jvcMenu.js"></script>
+        <script>
+            var data = '{"name":"Root","children":[{"name":"Option1"},{"name":"Option1","children":[{"name":"Option1.1","children":[{"name":"Option1.1.1","href":"#"},{"name":"Option1.1.2","href":"#"},{"name":"Option1.1.3","href":"#"}]},{"name":"Option1.2","children":[{"name":"Option1.2.1","href":"#"},{"name":"Option1.2.2","href":"#"},{"name":"Option1.2.3","href":"#"},{"name":"Option1.2.4","href":"#"}]},{"name":"Option1.3"}]}]}';
+            var json = JSON.parse(data);
+            $(function() {
+                $("#main_menu_div").jvcMenu({json:json,alignChild:"alignChild",menu_id:"mainmenu",position: {my:"left", at: "right"}});
+            });
+        </script>
+        <style>
+            .hoverClass{
+                background: none !important;
+                background-color: #890004 !important;
+            }
+            .hoverClassLink{
+                color: #FFFFFF !important;
+            }
+            .alignChild{
+                top: 0px !important;
+            }
+        </style>
+    </head>
+    <body>
+    <br/>
+    <div id="main_menu_div"></div>
+    </body>
+</html>
