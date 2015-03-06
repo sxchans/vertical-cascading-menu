@@ -1,50 +1,61 @@
-Vertical Cascading Menu (using JqueryUI)
-=======================
+<h2>Vertical Cascading Menu (using JqueryUI)</h2>
 
-This project is an implementation of the Jquery UI Menu Widget (http://jqueryui.com/menu/#default)
+<h4>This project is an implementation of the Jquery UI Menu Widget (http://jqueryui.com/menu/#default)</h4>
+<ol style="font-family: Arial, Sans-serif;font-size: 14px;">
+    <li> It takes a JSON Input and creates a corresponding vertical cascading menu recursively with potentially infinite depth
+    <li> As of now, It only works for &lt;ul&gt; &lt;li&gt; type of menu's.
+    <li> You need to pass various options as Associative Array/Dictionary/hashable
+    <li> <b>An example:</b>
+         <br><i>$("#main_menu_div").jvcMenu({json:json,
+                                    alignChild:"alignChild",
+                                    menu_id:"mainmenu",
+                                    position: {my:"left", at: "right"}
+                                  });</i>
+    <li> Json object is mandatory. Without this, the JS will not be able to create the cascading menu.
+    <li><h4><b>Options explained</b></h4>
+        <ul>
+           <li> <b>json</b> - A string parsed as a json object.
+                <p style="color:#FF0000;font-size: 12px">(DEFAULT: "")</p>
+                Example:-
+                <p><i>var data = '{"name":"Root","children":[{"name":"Option1"},{"name":"Option1","children":[{"name":"Option1.1","children":[{"name":"Option1.1.1","href":"#"},{"name":"Option1.1.2","href":"#"},{"name":"Option1.1.3","href":"#"}]},{"name":"Option1.2","children":[{"name":"Option1.2.1","href":"#"},{"name":"Option1.2.2","href":"#"},{"name":"Option1.2.3","href":"#"},{"name":"Option1.2.4","href":"#"}]},{"name":"Option1.3"}]}]}';</i></p>
+                <p><i>var json = JSON.parse(data);</i></p>
+           </li>
 
-1. It takes a JSON Input and creates a corresponding vertical cascading menu recursively with potentially infinite depth
-2. As of now, It only works for <ul><li> type of menu's.
-3. You need to pass various options as Associative Array/Dictionary/hashable
-4. An example:
-   $("#main_menu_div").jvcMenu({json:json,
-				alignChild:"alignChild",
-				menu_id:"mainmenu",
-				position: {my:"left", at: "right"}
-			      });
-5. Json object is mandatory. Without this, the JS will not be able to create the cascading menu.
-5. Options explained
-   *a. json - A string parsed as a json object.(DEFAULT: "")
-      -Example:- 
-      var data = '{"name":"Root","children":[{"name":"Option1"},{"name":"Option1","children":[{"name":"Option1.1","children":[{"name":"Option1.1.1","href":"#"},{"name":"Option1.1.2","href":"#"},{"name":"Option1.1.3","href":"#"}]},{"name":"Option1.2","children":[{"name":"Option1.2.1","href":"#"},{"name":"Option1.2.2","href":"#"},{"name":"Option1.2.3","href":"#"},{"name":"Option1.2.4","href":"#"}]},{"name":"Option1.3"}]}]}';
-
-      var json = JSON.parse(data);
-  
-   *b. rootElement: The root element of the Json Object (Default: "Root")
-   *c. alignChild: A CSS class to vertically align the parent-child elements(Recommended)
-      -Example:-
-            .alignChild{
-                top: 0px !important;
-            }
-   *d. menu_id: An ID generator text for all your nested <ul>(Default: "main_menu")
-   *e. position: JQUERY Option to set the position of the child element. Use alignChild class instead.
-   *f. cssUL: A list of inline styles to be applied to the <ul> element
-      (Default: {"font-family":'Helvetica,sans-serif',"font-size":"12px","width": "250px","background-color": "#F5F5F5"} )
-   *g. cssLI:  A list of inline styles to be applied to the <li> element
-      (Default: {"background-color": "#F5F5F5","border-bottom": "1px solid #CCCCCC"})
-   *h. cssLink: A list of inline styles to be applied to the <a> element - the child of <li>
-      (Default: {"font-size":"12px"} )
-   *i. cssLIHoverClass: CSS class for the li:hover (Default: hoverClass)
-      -Example:-
-            .hoverClass{
-                background: none !important;
-                background-color: #890004 !important;
-            }
-   *j. cssLINKHoverClass: CSS class for a:hover (Default: hoverClassLink)
-      -Example:-
-            .hoverClassLink{
-                color: #FFFFFF !important;
-            }
-   *k. createItem: A recursive function to parse the Json object and create the Cascading Vertical Menu. Do not override this until you are absolutely sure.
-   *l. Other Jquery Options - For more information go to http://api.jqueryui.com/menu/
-      Note: Do not use the "Menus" option since this list only works with <ul><li>. http://api.jqueryui.com/menu/#option-menus     
+           <li> <b>rootElement</b>: The root element of the Json Object <p style="color:#FF0000;font-size: 12px">(Default: "Root")</p></li>
+           <li> <b>alignChild</b>: A CSS class to vertically align the parent-child elements(Recommended)
+                <br><p>-Example:-
+                    <i><br>.alignChild{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;top: 0px !important;
+                    <br>}</i></p>
+           </li>
+           <li> <b>menu_id</b>: An ID generator text for all your nested &lt;ul&gt;<p style="color:#FF0000;font-size: 12px">(Default: "main_menu")</p></li>
+           <li> <b>position</b>: JQUERY Option to set the position of the child element. Use alignChild class instead.</li>
+           <li> <b>cssUL</b>: A list of inline styles to be applied to the &lt;ul&gt; element
+              <p style="color:#FF0000;font-size: 12px">(Default: {"font-family":'Helvetica,sans-serif',"font-size":"12px","width": "250px","background-color": "#F5F5F5"} )</p>
+           </li>
+           <li> <b>cssLI</b>:  A list of inline styles to be applied to the &lt;li&gt; element
+              <p style="color:#FF0000;font-size: 12px">(Default: {"background-color": "#F5F5F5","border-bottom": "1px solid #CCCCCC"})</p>
+           </li>
+           <li> <b>cssLink</b>: A list of inline styles to be applied to the &lt;a&gt; element - the child of &lt;li&gt;
+              <p style="color:#FF0000;font-size: 12px">(Default: {"font-size":"12px"} )</p>
+           </li>
+           <li> <b>cssLIHoverClass</b>: CSS class for the li:hover <p style="color:#FF0000;font-size: 12px">(Default: hoverClass)</p>
+              <br>-Example:-
+                    <br><i>.hoverClass{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;background: none !important;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;background-color: #890004 !important;
+                    <br>}</i>
+           </li>
+           <li> <b>cssLINKHoverClass</b>: CSS class for a:hover <p style="color:#FF0000;font-size: 12px">(Default: hoverClassLink)</p>
+              <br>-Example:-
+                    <br><i>.hoverClassLink{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;color: #FFFFFF !important;
+                    <br>}</i>
+           </li>
+           <li> <b>createItem</b>: A recursive function to parse the Json object and create the Cascading Vertical Menu. Do not override this until you are absolutely sure.</li>
+           <li> <b>Other Jquery Options - For more information go to <a href="http://api.jqueryui.com/menu/">http://api.jqueryui.com/menu</a>
+                 Note: Do not use the "Menus" option since this list only works with &lt;ul&gt;&lt;li&gt;. <a href="http://api.jqueryui.com/menu/#option-menus">Check this out!</a>
+           </li>
+         </ul>
+    </li>
+</ol>
